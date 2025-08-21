@@ -1,0 +1,86 @@
+services:
+  # Nginx Reverse Proxy con SSL
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: varnox-nginx
+    restart: unless-stopped
+    depends_on:
+      - frontend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./frontend/robots.txt:/usr/share/nginx/html/robots.txt:ro
+      - ./frontend/sitemap.xml:/usr/share/nginx/html/sitemap.xml:ro
+      - /etc/letsencrypt/live/varnox.sytes.net:/etc/letsencrypt/live/varnox.sytes.net:ro
+      - /etc/letsencrypt/archive/varnox.sytes.net:/etc/letsencrypt/archive/varnox.sytes.net:ro
+      - /etc/letsencrypt/renewal:/etc/letsencrypt/renewal:ro
+    networks:
+      - varnox-network
+  # FastAPI Backend
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: varnox-backend
+    restart: unless-stopped
+    environment:
+      - ENVIRONMENT=development
+      - DATABASE_URL=sqlite:///./contacts.db
+      - CORS_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - backend_uploads:/app/uploads
+      - backend_data:/app/data
+    networks:
+      - varnox-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+  # Vue.js Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: varnox-frontend
+    restart: unless-stopped
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - NODE_ENV=development
+    depends_on:
+      backend:
+        condition: service_healthy
+    expose:
+      - "3000"
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+    networks:
+      - varnox-network
+    stdin_open: true
+    tty: true
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  backend_uploads:
+    driver: local
+  frontend_node_modules:
+    driver: local
+  backend_data:
+    driver: local
+
+networks:
+  varnox-network:
+    driver: bridge

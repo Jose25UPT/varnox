@@ -1,0 +1,267 @@
+/* VARNOX TACTICAL OPERATIONS SYSTEM */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&family=Source+Code+Pro:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VARNOX TACTICAL COLOR SYSTEM */
+:root {
+  /* Primary Military Palette */
+  --varnox-primary: #00FF41;     /* Matrix Green */
+  --varnox-secondary: #FF6B35;   /* Alert Orange */
+  --varnox-accent: #0A84FF;      /* Tactical Blue */
+  
+  /* Tactical Operations Colors */
+  --tech-green: #00FF41;         /* Matrix/Terminal Green */
+  --cyber-green: #39FF14;        /* Cyber/Radar Green */
+  --military-olive: #4A5D23;     /* Military Olive */
+  --tactical-gray: #2A2D3A;      /* Tactical Gray */
+  --stealth-black: #0D1117;      /* Stealth Black */
+  --arsenal-dark: #1A1D29;       /* Arsenal Dark */
+  --alert-orange: #FF6B35;       /* Alert Orange */
+  --warning-red: #FF453A;        /* Warning Red */
+  --hud-blue: #0A84FF;           /* HUD Blue */
+  --scanner-cyan: #64D2FF;       /* Scanner Cyan */
+  
+  /* Military Gradients */
+  --varnox-gradient-tactical: linear-gradient(135deg, #00FF41 0%, #39FF14 50%, #0A84FF 100%);
+  --varnox-gradient-stealth: linear-gradient(135deg, #0D1117 0%, #2A2D3A 50%, #1A1D29 100%);
+  --varnox-gradient-hud: linear-gradient(135deg, #0A84FF 0%, #64D2FF 100%);
+  --varnox-gradient-alert: linear-gradient(135deg, #FF6B35 0%, #FF453A 100%);
+  
+  /* Tactical Gray Scale */
+  --varnox-gray-50: #F0F2F5;      /* Light Terminal */
+  --varnox-gray-100: #E4E7EB;     /* Terminal Background */
+  --varnox-gray-200: #C8CDD4;     /* Interface Gray */
+  --varnox-gray-300: #9AA0A9;     /* Disabled Text */
+  --varnox-gray-400: #6B7280;     /* Secondary Text */
+  --varnox-gray-500: #4B5563;     /* Primary Text */
+  --varnox-gray-600: #374151;     /* Dark Text */
+  --varnox-gray-700: #2A2D3A;     /* Tactical Gray */
+  --varnox-gray-800: #1A1D29;     /* Arsenal Dark */
+  --varnox-gray-900: #0D1117;     /* Stealth Black */
+  
+  /* Background Colors - Tactical */
+  --varnox-bg-primary: #0D1117;
+  --varnox-bg-secondary: #1A1D29;
+  --varnox-bg-card: rgba(42, 45, 58, 0.9);
+}
+
+@layer base {
+  html {
+    font-family: 'JetBrains Mono', monospace;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: var(--varnox-bg-primary);
+    color: var(--tech-green);
+    overflow-x: hidden;
+    line-height: 1.6;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  /* Typography Base - Tactical */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    font-family: 'Orbitron', monospace;
+  }
+}
+
+@layer components {
+  /* VARNOX TACTICAL Typography System */
+  .varnox-hero-title {
+    font-family: 'Orbitron', monospace;
+    font-weight: 800;
+    background: var(--varnox-gradient-tactical);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+  }
+  
+  .varnox-section-title {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    color: var(--tech-green);
+  }
+  
+  .varnox-accent-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    color: var(--alert-orange);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  .varnox-display-title {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    background: var(--varnox-gradient-tactical);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .varnox-code-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    color: var(--tech-green);
+  }
+  
+  .varnox-body-text {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+    color: var(--varnox-gray-300);
+    line-height: 1.7;
+  }
+  
+  /* VARNOX TACTICAL Button System */
+  .varnox-btn {
+    @apply px-8 py-4 rounded-xl font-semibold transition-all duration-300 ease-in-out transform;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .varnox-btn-primary {
+    background: var(--varnox-gradient-section);
+    color: white;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+  }
+  
+  .varnox-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+  }
+  
+  .varnox-btn-secondary {
+    background: transparent;
+    color: var(--varnox-primary);
+    border: 2px solid var(--varnox-primary);
+  }
+  
+  .varnox-btn-secondary:hover {
+    background: var(--varnox-primary);
+    color: white;
+    transform: translateY(-2px);
+  }
+  
+  /* VARNOX Card System */
+  .varnox-card {
+    background: var(--varnox-bg-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .varnox-card:hover {
+    border-color: var(--varnox-primary);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    transform: translateY(-5px);
+  }
+  
+  /* VARNOX Section System */
+  .varnox-section {
+    @apply py-20 lg:py-32 px-6 lg:px-8 relative;
+  }
+}
+
+/* ===== FORM ELEMENTS ===== */
+.varnox-input {
+  width: 100%;
+  background: var(--varnox-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.varnox-input:focus {
+  outline: none;
+  border-color: var(--varnox-primary);
+  box-shadow: 0 0 0 1px var(--varnox-primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.varnox-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+}
+
+.varnox-input:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.varnox-textarea {
+  width: 100%;
+  background: var(--varnox-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  min-height: 120px;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.varnox-textarea:focus {
+  outline: none;
+  border-color: var(--varnox-primary);
+  box-shadow: 0 0 0 1px var(--varnox-primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.varnox-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes varnox-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes varnox-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.1; }
+  50% { transform: scale(1.1); opacity: 0.2; }
+}
+
+/* VARNOX Background Utilities */
+.varnox-bg-hero {
+  background: var(--varnox-gradient-hero);
+  position: relative;
+}
+
+.varnox-bg-section {
+  background: linear-gradient(135deg, var(--varnox-bg-primary) 0%, var(--varnox-bg-secondary) 100%);
+}
+
+.varnox-bg-footer {
+  background: linear-gradient(135deg, var(--varnox-gray-900) 0%, var(--varnox-gray-800) 50%, var(--varnox-primary) 100%);
+}
+
+.varnox-floating {
+  animation: varnox-float 6s ease-in-out infinite;
+}
+
+@layer utilities {
+  .text-varnox-primary { color: var(--varnox-primary); }
+  .text-varnox-secondary { color: var(--varnox-secondary); }
+  .text-varnox-accent { color: var(--varnox-accent); }
+  .text-varnox-gradient {
+    background: var(--varnox-gradient-section);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

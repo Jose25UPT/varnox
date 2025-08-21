@@ -1,0 +1,17 @@
+# Core FastAPI dependencies
+fastapi==0.115.4
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+
+# File handling
+python-multipart==0.0.19
+
+# Authentication
+PyJWT==2.10.1
+
+# Utility dependencies
+python-dotenv==1.0.1
+
+
+# Telegram
+requests==2.31.0

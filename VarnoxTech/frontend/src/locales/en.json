@@ -1,0 +1,22 @@
+{
+  "navbar": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "process": "Process",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tactical_systems": "VARNOX TACTICAL SYSTEMS",
+    "main_title": "VARNOX",
+    "main_subtitle": "TACTICAL CYBER OPERATIONS",
+    "headline": "CYBER WARFARE DIVISION",
+    "subtitle1": "Advanced cybersecurity systems",
+    "subtitle2": "Military-grade infrastructure",
+    "subtitle3": "Mission critical solutions",
+    "cta": "[ ENGAGE OPERATIONS ]"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

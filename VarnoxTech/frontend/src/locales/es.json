@@ -1,0 +1,22 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "projects": "Proyectos",
+    "process": "Proceso",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "tactical_systems": "SISTEMAS TÁCTICOS VARNOX",
+    "main_title": "VARNOX",
+    "main_subtitle": "OPERACIONES CIBERSEGURAS TÁCTICAS",
+    "headline": "DIVISIÓN DE GUERRA CIBERNÉTICA",
+    "subtitle1": "Sistemas avanzados de ciberseguridad",
+    "subtitle2": "Infraestructura militar de alto nivel",
+    "subtitle3": "Soluciones de misión crítica",
+    "cta": "[ INICIAR OPERACIÓN ]"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  }
+}
