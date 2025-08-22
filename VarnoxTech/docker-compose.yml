@@ -51,7 +51,7 @@ services:
     container_name: varnox-frontend
     restart: unless-stopped
     environment:
-      - VITE_API_URL=https://api.varnox.sytes.net
+      - VITE_API_URL=https://varnox.sytes.net/api
       - NODE_ENV=production
     depends_on:
       backend:
