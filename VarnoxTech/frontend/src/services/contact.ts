@@ -31,19 +31,19 @@ class ContactService {
     try {
       const formData = new FormData()
       
-      // Agregar todos los campos del formulario
+      // Agregar todos los campos del formulario con los nombres que espera el backend
       formData.append('name', data.name)
       formData.append('email', data.email)
-      formData.append('phone', data.phone)
-      formData.append('company', data.company)
-      formData.append('type', data.type)
-      formData.append('budget', data.budget)
-      formData.append('referral', data.referral)
-      formData.append('message', data.message)
-      
+      formData.append('telefono', data.phone)
+      formData.append('empresa', data.company)
+      formData.append('tipo', data.type)
+      formData.append('presupuesto', data.budget)
+      formData.append('referencia', data.referral)
+      formData.append('mensaje', data.message)
+
       // Agregar archivo si existe
       if (data.file) {
-        formData.append('file', data.file)
+        formData.append('archivo', data.file)
       }
 
       const response = await axios.post(`${this.baseURL}/api/public/contact/submit`, formData, {
