@@ -1,3 +1,11 @@
+
 User-agent: *
 Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://varnox.sytes.net/sitemap.xml

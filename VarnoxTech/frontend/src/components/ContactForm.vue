@@ -1,5 +1,5 @@
 <template>
-  <section id="contacto" class="bg-gradient-to-br from-gray-50 via-white to-indigo-50/30 py-20 lg:py-32 relative overflow-hidden hexagonal-grid-pattern">
+  <section id="contacto" class="bg-gradient-to-br from-gray-50 via-white to-indigo-50/30 py-10 lg:py-16 relative overflow-hidden hexagonal-grid-pattern">
     <!-- Decorative elements con paleta moderna -->
     <div class="absolute top-10 right-10 w-32 h-32 rounded-full opacity-20 bg-gradient-to-br from-indigo-600 to-purple-600"></div>
     <div class="absolute bottom-10 left-10 w-24 h-24 rounded-full opacity-15 bg-gradient-to-br from-purple-600 to-amber-500"></div>
@@ -13,8 +13,9 @@
           Contacto
         </div>
         
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-gray-900 font-orbitron">
-          <span class="bg-gradient-to-r from-indigo-600 via-purple-600 to-amber-500 bg-clip-text text-transparent">Hablemos</span> de tu proyecto
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-orbitron">
+          <span class="bg-gradient-to-r from-green-500 via-blue-500 to-purple-600 bg-clip-text text-transparent drop-shadow-lg">Hablemos</span>
+          <span class="text-gray-800"> de tu proyecto</span>
         </h2>
         
         <div class="bg-white p-8 relative overflow-hidden rounded-2xl border border-gray-200 shadow-xl max-w-4xl mx-auto">
@@ -519,28 +520,24 @@ const handleFileChange = (event: Event) => {
     45px 45px,
     -15px -15px;
   animation: hexagonal-tech-drift 30s linear infinite;
+  /* Se eliminó la opacidad global para que el contenido no se vea opaco */
 }
 
 @keyframes hexagonal-tech-drift {
   0% { 
     transform: translateX(0) translateY(0) rotate(0deg) scale(1); 
-    opacity: 0.85;
   }
   25% { 
     transform: translateX(-8px) translateY(-4px) rotate(0.3deg) scale(1.02); 
-    opacity: 0.75;
   }
   50% { 
     transform: translateX(4px) translateY(-8px) rotate(0deg) scale(1); 
-    opacity: 0.85;
   }
   75% { 
     transform: translateX(-4px) translateY(4px) rotate(-0.3deg) scale(0.98); 
-    opacity: 0.8;
   }
   100% { 
     transform: translateX(0) translateY(0) rotate(0deg) scale(1); 
-    opacity: 0.85;
   }
 }
 

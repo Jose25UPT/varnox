@@ -1,62 +1,54 @@
 <template>
-  <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
-    <!-- Tactical Grid Background -->
-  <div class="absolute inset-0 tactical-grid-bg opacity-60"></div>
-    
-    <!-- Military Overlay -->
-  <div class="absolute inset-0 bg-gradient-to-br from-gray-400 via-gray-500 to-gray-700 opacity-70"></div>
-    
-    <!-- HUD Elements -->
-    <div class="absolute inset-0">
-      <div class="tactical-scanner scanner-1"></div>
-      <div class="tactical-scanner scanner-2"></div>
-      <div class="tactical-scanner scanner-3"></div>
-    </div>
-    
-    <!-- Circuit Pattern Overlay -->
-    <div class="absolute inset-0 circuit-pattern">
+  <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
+    <!-- Tactical Grid Background (más sutil) -->
+    <div class="absolute inset-0 tactical-grid-bg pointer-events-none opacity-30"></div>
+    <!-- Circuit Pattern Overlay (más sutil) -->
+    <div class="absolute inset-0 circuit-pattern pointer-events-none opacity-10">
       <div class="circuit c-1"></div>
       <div class="circuit c-2"></div>
       <div class="circuit c-3"></div>
       <div class="circuit c-4"></div>
     </div>
-    
-    <!-- Military Command Panel -->
-  <div class="absolute top-20 left-6 bg-gray-800/80 backdrop-blur-lg border border-green-400 rounded-xl p-4 font-mono text-sm shadow-2xl">
-  <div class="text-green-400 mb-3 font-bold text-xs tracking-wider">{{ $t('hero.command_center') }}</div>
-      <div class="flex items-center gap-3 mb-2">
-        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-  <span class="text-green-300 font-medium">{{ $t('hero.systems_operational') }}</span>
-      </div>
-      <div class="flex items-center gap-3 mb-2">
-        <div class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-  <span class="text-orange-300 font-medium">{{ $t('hero.security_enhanced') }}</span>
-      </div>
-      <div class="flex items-center gap-3">
-        <div class="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
-  <span class="text-red-300 font-medium">{{ $t('hero.threat_level_minimal') }}</span>
-      </div>
+    <!-- Mensaje oculto en binario (subliminal) -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-xs font-mono select-none opacity-10 tracking-widest whitespace-nowrap z-0" style="letter-spacing:0.2em;">
+      01010110 01100001 01110010 01101110 01101111 01111000 00100000 01010011 01101001 01101110 00100000 01001100 01101001 01101101 01101001 01110100 01100101 01110011
     </div>
     
-    <!-- Mission Timer -->
-  <div class="absolute top-20 right-6 bg-gray-800/80 backdrop-blur-lg border border-blue-400 rounded-xl p-4 font-mono text-sm shadow-2xl">
-  <div class="text-blue-400 mb-3 font-bold text-xs tracking-wider">{{ $t('hero.mission_timer') }}</div>
-      <div class="text-blue-300 text-lg font-bold" id="mission-timer">00:00:00</div>
+    <!-- Military Command Panel (responsive) -->
+    <div class="absolute left-1 right-1 top-2 md:top-20 md:left-6 md:right-auto bg-gray-800/80 backdrop-blur-lg border border-green-400 rounded-xl p-2 md:p-4 font-mono text-xs md:text-sm shadow-2xl w-auto max-w-xs md:max-w-sm">
+  <div class="text-green-400 mb-2 md:mb-3 font-bold text-xs tracking-wider">COMMAND CENTER</div>
+      <div class="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+  <span class="text-green-300 font-medium">SYSTEMS OPERATIONAL</span>
+      </div>
+      <div class="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+        <div class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
+  <span class="text-orange-300 font-medium">SECURITY ENHANCED</span>
+      </div>
+      <div class="flex items-center gap-2 md:gap-3">
+        <div class="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
+  <span class="text-red-300 font-medium">THREAT LEVEL: MINIMAL</span>
+      </div>
+    </div>
+    <!-- Mission Timer (responsive) -->
+    <div class="absolute right-1 left-1 top-24 md:top-20 md:right-6 md:left-auto bg-gray-800/80 backdrop-blur-lg border border-blue-400 rounded-xl p-2 md:p-4 font-mono text-xs md:text-sm shadow-2xl w-auto max-w-xs md:max-w-sm">
+  <div class="text-blue-400 mb-2 md:mb-3 font-bold text-xs tracking-wider">MISSION TIMER</div>
+      <div class="text-blue-300 text-base md:text-lg font-bold" id="mission-timer">00:00:00</div>
       <div class="text-blue-300/60 text-xs mt-1">UPTIME SINCE DEPLOYMENT</div>
-  <div class="text-blue-300/60 text-xs mt-1">{{ $t('hero.uptime_since_deployment') }}</div>
+  <div class="text-blue-300/60 text-xs mt-1">UPTIME SINCE DEPLOYMENT</div>
     </div>
     
     <!-- Main Content -->
     <div class="relative z-10 text-center px-6 lg:px-8 max-w-6xl mx-auto">
-      <!-- Tactical Header -->
+      <!-- Tactical Header con mensaje enigmático -->
       <div class="mb-6 animate-fade-in font-mono text-green-400 text-sm tracking-wider">
-  <span class="text-green-400">[</span>
-  <span class="text-green-300">{{ $t('hero.tactical_systems') }}</span>
-  <span class="text-green-400">]</span>
-  <span class="text-green-400 animate-pulse ml-2">█</span>
+        <span class="text-green-400">[</span>
+        <span class="text-green-300">ACCESS LEVEL: <span class="tracking-widest">Ξ</span> CLASSIFIED</span>
+        <span class="text-green-400">]</span>
+        <span class="text-green-400 animate-pulse ml-2">█</span>
       </div>
       
-      <!-- Main Corporate Title -->
+      <!-- Main Corporate Title con mensaje enigmático -->
       <div class="mb-8 lg:mb-12 animate-fade-in">
         <h1 class="text-5xl md:text-7xl lg:text-8xl tracking-tight font-extrabold font-sans text-gray-800 drop-shadow-xl">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 via-gray-500 to-gray-900">
@@ -64,36 +56,32 @@
           </span>
         </h1>
         <div class="text-gray-600 text-base md:text-lg font-sans mt-4 font-semibold tracking-wide max-w-2xl mx-auto">
-          Soluciones tecnológicas y ciberseguridad de alto nivel para empresas modernas.<br>
-          Innovación, protección y confianza en la era digital.
+          Operaciones discretas. Resultados extraordinarios.<br>
+          <span class="opacity-60">Protocol: <span class="font-mono tracking-widest">SIGMA-7</span></span>
         </div>
       </div>
       
       <!-- Military Headline -->
       <h2 class="text-4xl md:text-6xl lg:text-7xl mb-8 animate-fade-in-up font-mono font-bold text-white drop-shadow-2xl" style="animation-delay: 0.3s;">
-        {{ $t('hero.cyber') }}
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
-          {{ $t('hero.warfare') }}
-        </span>
-        {{ $t('hero.division') }}
+        CYBER <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">WARFARE</span> DIVISION
       </h2>
       
-      <!-- Military Subtitle -->
-  <div class="bg-gray-800/80 backdrop-blur-lg border border-green-500/30 rounded-xl p-6 font-mono text-lg md:text-xl mb-12 lg:mb-16 max-w-4xl mx-auto animate-fade-in-up shadow-2xl" style="animation-delay: 0.6s;">
+      <!-- Military Subtitle enigmático -->
+      <div class="bg-gray-800/80 backdrop-blur-lg border border-green-500/30 rounded-xl p-6 font-mono text-lg md:text-xl mb-12 lg:mb-16 max-w-4xl mx-auto animate-fade-in-up shadow-2xl" style="animation-delay: 0.6s;">
         <div class="text-slate-200 leading-relaxed">
-          <span class="text-green-400 font-semibold">></span> {{ $t('hero.advanced_cybersecurity') }}<br/>
-          <span class="text-orange-400 font-semibold">></span> {{ $t('hero.military_infrastructure') }}<br/>
-          <span class="text-blue-400 font-semibold">></span> {{ $t('hero.classified_mission') }}
+          <span class="text-green-400 font-semibold">></span> SIGNAL ENCRYPTED<br/>
+          <span class="text-orange-400 font-semibold">></span> COORDINATES: <span class="tracking-widest">19.43°N 99.13°W</span><br/>
+          <span class="text-blue-400 font-semibold">></span> STATUS: <span class="tracking-widest">ACTIVE</span>
         </div>
       </div>
       
-      <!-- Terminal Command Display -->
+      <!-- Terminal Command Display con mensaje oculto -->
       <div class="font-mono text-sm md:text-base mb-8 animate-fade-in-up text-slate-400" style="animation-delay: 0.7s;">
-  <span class="text-green-400">root@varnox:~$</span> 
-  <span class="text-white">{{ $t('hero.initiate') }}</span> 
-  <span class="text-orange-400">{{ $t('hero.classified') }}</span> 
-  <span class="text-blue-400">{{ $t('hero.security_maximum') }}</span>
-  <span class="text-green-400 animate-pulse">█</span>
+        <span class="text-green-400">Ξ@varnox:~$</span> 
+        <span class="text-white">RUN</span> 
+        <span class="text-orange-400">SIGMA-7</span> 
+        <span class="text-blue-400">ACCESS: GRANTED</span>
+        <span class="text-green-400 animate-pulse">█</span>
       </div>
       
       <!-- Military CTA Buttons -->
@@ -103,7 +91,7 @@
           class="group relative overflow-hidden bg-gradient-to-r from-green-600 via-orange-600 to-red-600 text-white px-8 py-4 rounded-none font-mono font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-green-500/30 transform hover:scale-105 border border-green-500/50"
         >
           <span class="relative z-10">[ ENGAGE OPERATIONS ]</span>
-          <span class="relative z-10">{{ $t('hero.engage_operations') }}</span>
+          <span class="relative z-10">ENGAGE OPERATIONS</span>
           <div class="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </button>
         <button 
@@ -111,33 +99,20 @@
           class="group relative overflow-hidden bg-gray-900/80 border-2 border-green-500 text-green-300 px-8 py-4 rounded font-mono font-bold text-lg transition-all duration-300 backdrop-blur-lg shadow-2xl hover:bg-green-500 hover:text-black transform hover:scale-105"
         >
           <span class="relative z-10">[ INTEL BRIEFING ]</span>
-          <span class="relative z-10">{{ $t('hero.intel_briefing') }}</span>
+          <span class="relative z-10">INTEL BRIEFING</span>
         </button>
       </div>
       
       <!-- Output Terminal Militar -->
       <div class="font-mono text-xs mt-8 animate-fade-in-up text-green-400" style="animation-delay: 1.2s;">
         <div class="typing-animation">
-          {{ $t('hero.terminal_1') }}<br/>
-          {{ $t('hero.terminal_2') }}<br/>
-          {{ $t('hero.terminal_3') }}
+          TERMINAL READY<br/>
+          SYSTEM ONLINE<br/>
+          AWAITING COMMAND
         </div>
       </div>
     </div>
     
-    <!-- Scroll Indicator Militar -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center animate-bounce">
-      <div class="mb-3 text-green-400 font-mono text-sm font-medium tracking-wide">CONTINUE_MISSION</div>
-  <div class="mb-3 text-green-400 font-mono text-sm font-medium tracking-wide">{{ $t('hero.continue_mission') }}</div>
-      <div class="flex flex-col items-center">
-  <div class="w-6 h-10 border-2 border-green-400 rounded-sm p-1 bg-gray-900 backdrop-blur-sm shadow-lg">
-          <div class="w-2 h-2 bg-green-400 rounded-sm animate-ping"></div>
-        </div>
-        <svg class="w-6 h-6 text-green-400 mt-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-        </svg>
-      </div>
-    </div>
   </section>
 </template>
 

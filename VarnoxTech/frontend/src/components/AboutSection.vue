@@ -1,5 +1,5 @@
 <template>
-  <section id="nosotros" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+  <section id="nosotros" class="py-10 lg:py-16 bg-white relative overflow-hidden">
     <!-- Hexagonal Grid Background -->
     <div class="absolute inset-0 hexagonal-grid-pattern opacity-30"></div>
     

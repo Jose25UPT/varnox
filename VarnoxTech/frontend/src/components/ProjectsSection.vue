@@ -11,15 +11,6 @@
           <span class="bg-gradient-to-r from-indigo-600 via-purple-600 to-amber-500 bg-clip-text text-transparent">Nuestros</span> Proyectos
         </h2>
         
-        <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-xl max-w-4xl mx-auto">
-          <p class="text-gray-700 text-lg leading-relaxed mb-4">
-            <span class="text-indigo-600 font-bold">></span> Operaciones completadas con éxito absoluto
-            <span class="text-indigo-600 animate-pulse">_</span>
-          </p>
-          <p class="text-gray-600 text-base">
-            Cada proyecto representa una misión cumplida y un cliente satisfecho con resultados excepcionales.
-          </p>
-        </div>
       </div>
       
       <!-- Projects Grid -->
@@ -27,52 +18,37 @@
         <div 
           v-for="project in projects" 
           :key="project.id"
-          class="bg-white rounded-2xl border border-gray-200 shadow-xl transition-all duration-500 overflow-hidden hover:shadow-2xl hover:scale-105"
+          class="relative group bg-white rounded-xl border border-gray-200 shadow-md transition-all duration-500 overflow-hidden hover:shadow-xl hover:scale-105 min-h-[210px]"
         >
-          <!-- Project Header -->
-          <div class="p-6 border-b border-gray-100">
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-2xl">{{ project.icon }}</span>
-              <span class="px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
-                {{ project.status }}
-              </span>
-            </div>
-            
-            <h3 class="text-xl font-bold text-gray-900 mb-2">{{ project.title }}</h3>
-            <p class="text-indigo-600 text-sm font-medium mb-4">{{ project.category }}</p>
-            <p class="text-gray-600 text-sm leading-relaxed">{{ project.description }}</p>
-          </div>
-          
-          <!-- Tech Stack -->
-          <div class="p-6 border-b border-gray-100">
-            <h4 class="text-sm font-semibold text-gray-700 mb-3">Tecnologías:</h4>
-            <div class="flex flex-wrap gap-2">
-              <span 
-                v-for="tech in project.tech" 
-                :key="tech"
-                class="px-2 py-1 text-xs font-medium bg-indigo-100 text-indigo-700 rounded"
-              >
+          <!-- Overlay enigmático compacto -->
+          <div class="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-indigo-900/80 to-purple-900/80 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 pointer-events-none px-4 py-6">
+            <div class="text-green-400 font-mono text-xs mb-1 animate-scan">{{ project.secret || 'Access Code: SIGMA-' + project.id }}</div>
+            <div class="text-white text-base font-bold mb-1">{{ project.title }}</div>
+            <div class="text-indigo-300 text-xs mb-2">{{ project.category }}</div>
+            <div class="flex flex-wrap gap-1 mb-2 justify-center">
+              <span v-for="tech in project.tech" :key="tech" class="px-2 py-0.5 text-[10px] font-medium bg-indigo-800/60 text-indigo-100 rounded">
                 {{ tech }}
               </span>
             </div>
+            <!-- Badges de métricas -->
+            <div class="flex gap-2 mb-2">
+              <span class="bg-indigo-700/80 text-white text-[10px] px-2 py-0.5 rounded font-mono">Perf: {{ project.metrics.performance }}</span>
+              <span class="bg-purple-700/80 text-white text-[10px] px-2 py-0.5 rounded font-mono">Sat: {{ project.metrics.satisfaction }}</span>
+              <span class="bg-amber-700/80 text-white text-[10px] px-2 py-0.5 rounded font-mono">Mej: {{ project.metrics.improvement }}</span>
+            </div>
+            <div class="text-gray-300 text-[10px] italic tracking-widest opacity-70">{{ project.hiddenMsg || 'COORD: 19.43°N 99.13°W' }}</div>
           </div>
-          
-          <!-- Metrics -->
-          <div class="p-6 space-y-4">
-            <div class="flex items-center justify-between">
-              <span class="text-sm font-semibold text-gray-700">Rendimiento:</span>
-              <span class="text-indigo-700 font-bold">{{ project.metrics.performance }}</span>
+          <!-- Project Header compacto -->
+          <div class="p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xl">{{ project.icon }}</span>
+              <span class="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-green-100 text-green-800">
+                {{ project.status }}
+              </span>
             </div>
-            
-            <div class="flex items-center justify-between">
-              <span class="text-sm font-semibold text-gray-700">Satisfacción:</span>
-              <span class="text-purple-700 font-bold">{{ project.metrics.satisfaction }}</span>
-            </div>
-            
-            <div class="flex items-center justify-between">
-              <span class="text-sm font-semibold text-gray-700">Mejora:</span>
-              <span class="text-amber-700 font-bold">{{ project.metrics.improvement }}</span>
-            </div>
+            <h3 class="text-base font-bold text-gray-900 mb-1">{{ project.title }}</h3>
+            <p class="text-indigo-600 text-xs font-medium mb-1">{{ project.category }}</p>
+            <p class="text-gray-600 text-xs leading-snug line-clamp-3">{{ project.description }}</p>
           </div>
         </div>
       </div>
@@ -96,7 +72,9 @@ const projects = ref([
       improvement: "45%"
     },
     status: "Activo",
-    icon: "🏢"
+    icon: "🏢",
+    secret: "Access Code: ALPHA-1",
+    hiddenMsg: "COORD: 19.43°N 99.13°W"
   },
   {
     id: 2,
@@ -110,7 +88,9 @@ const projects = ref([
       improvement: "67%"
     },
     status: "Activo",
-    icon: "🤖"
+    icon: "🤖",
+    secret: "Access Code: BETA-2",
+    hiddenMsg: "SIGMA PROTOCOL ACTIVE"
   },
   {
     id: 3,
@@ -124,7 +104,9 @@ const projects = ref([
       improvement: "38%"
     },
     status: "Desarrollo",
-    icon: "📱"
+    icon: "📱",
+    secret: "Access Code: GAMMA-3",
+    hiddenMsg: "RESTRICTED AREA"
   }
 ])
 </script>
@@ -137,5 +119,18 @@ const projects = ref([
     radial-gradient(circle at 15px 15px, rgba(255, 255, 255, 0.38) 1px, transparent 0);
   background-size: 16px 16px, 24px 24px, 32px 32px;
   background-position: 0 0, 8px 8px, 16px 16px;
+}
+
+/* Animación tipo scan/glitch para overlay */
+@keyframes scan {
+  0% { opacity: 0.7; filter: blur(0.5px); }
+  20% { opacity: 1; filter: blur(0); }
+  40% { opacity: 0.8; filter: blur(1px); }
+  60% { opacity: 1; filter: blur(0); }
+  80% { opacity: 0.7; filter: blur(0.5px); }
+  100% { opacity: 0.7; filter: blur(0.5px); }
+}
+.animate-scan {
+  animation: scan 2.5s infinite linear alternate;
 }
 </style>

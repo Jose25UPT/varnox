@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="min-h-screen bg-slate-900">
+  <div id="app" class="min-h-screen w-full bg-slate-900 flex flex-col">
     <RouterView />
   </div>
 </template>
@@ -18,5 +18,10 @@ onMounted(() => {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--varnox-bg-primary);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 }
 </style>
+

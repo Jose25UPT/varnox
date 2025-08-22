@@ -1,5 +1,5 @@
 ﻿<template>
-  <section id="servicios" class="py-16 bg-white">
+  <section id="servicios" class="py-8 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10">
         <h2 class="text-3xl md:text-4xl font-bold text-orange-900 mb-2 font-mono tracking-widest">
@@ -9,29 +9,17 @@
         
         </p>
       </div>
-      <div class="flex justify-center">
-        <div 
-          class="card-3d"
-          @mousedown="startDrag"
-          @mousemove="onDrag"
-          @mouseup="endDrag"
-          @mouseleave="endDrag"
-          @touchstart="startDrag"
-          @touchmove="onDrag"
-          @touchend="endDrag"
-          :style="{ cursor: isDragging ? 'grabbing' : 'grab' }"
-        >
-          <div v-for="(service, i) in services3d" :key="i" :style="getCardStyle(i)">
-            <div class="card-uiverse">
-              <div class="tools-uiverse">
-                <div class="circle-uiverse"><span class="red-uiverse box-uiverse"></span></div>
-                <div class="circle-uiverse"><span class="yellow-uiverse box-uiverse"></span></div>
-                <div class="circle-uiverse"><span class="green-uiverse box-uiverse"></span></div>
-              </div>
-              <div class="card__content-uiverse">
-                <i :class="service.icon" class="icon-uiverse"></i>
-                <p class="title-uiverse">{{ service.title }}</p>
-              </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-center">
+        <div v-for="(service, i) in services3d" :key="i">
+          <div class="card-uiverse">
+            <div class="tools-uiverse">
+              <div class="circle-uiverse"><span class="red-uiverse box-uiverse"></span></div>
+              <div class="circle-uiverse"><span class="yellow-uiverse box-uiverse"></span></div>
+              <div class="circle-uiverse"><span class="green-uiverse box-uiverse"></span></div>
+            </div>
+            <div class="card__content-uiverse">
+              <i :class="service.icon" class="icon-uiverse"></i>
+              <p class="title-uiverse">{{ service.title }}</p>
             </div>
           </div>
         </div>
@@ -55,90 +43,15 @@ const services3d = [
   { icon: 'fas fa-user-secret', title: 'Inteligencia', color: '#f7e6b2' },
   { icon: 'fas fa-database', title: 'Datos', color: '#b2b7f7' },
 ]
-
-const angle = ref(0)
-const isDragging = ref(false)
-let startX = 0
-let lastAngle = 0
-
-function getCardStyle(i) {
-  const n = services3d.length;
-  const theta = (360 / n) * i + angle.value;
-  return {
-    transform: `translate(-50%, -50%) rotateY(${theta}deg) translateZ(300px)`,
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    width: '148px',
-    height: '198px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: isDragging.value ? 'none' : 'transform 0.3s',
-    overflow: 'visible',
-    padding: '0',
-    background: 'none',
-    border: 'none',
-    boxShadow: 'none',
-  };
-}
-
-function startDrag(e) {
-  isDragging.value = true
-  startX = e.touches ? e.touches[0].clientX : e.clientX
-  lastAngle = angle.value
-}
-
-function onDrag(e) {
-  if (!isDragging.value) return
-  const x = e.touches ? e.touches[0].clientX : e.clientX
-  const delta = x - startX
-  angle.value = lastAngle + delta
-}
-
-function endDrag() {
-  isDragging.value = false
-}
-
-// Carrusel fijo: sin animación automática
 </script>
 
 <style scoped>
-  .card-3d {
-    position: relative;
-    width: 950px;
-    height: 260px;
-    transform-style: preserve-3d;
-    transform: perspective(1200px);
-    animation: autoRun3d 20s linear infinite;
-    will-change: transform;
-    background: #fff;
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.07);
-    padding: 0;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  /* Eliminada la pausa al hacer hover para que el carrusel nunca se detenga */
-  .card-3d > div {
-    will-change: transform, filter;
-    transition-duration: 200ms;
-    cursor: pointer;
-    user-select: none;
-    overflow: visible;
-    padding: 0;
-    background: inherit;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
 
   /* --- Uiverse.io Card Style --- */
   .card-uiverse {
-    width: 148px;
-    height: 198px;
+    width: 120px;
+    height: 160px;
     margin: 0 auto;
     background-color: #f4f4f3;
     border-radius: 12px;

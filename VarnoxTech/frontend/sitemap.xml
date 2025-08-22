@@ -3,21 +3,32 @@
   <url>
     <loc>https://varnox.sytes.net/</loc>
     <priority>1.0</priority>
+    <lastmod>2025-08-21</lastmod>
   </url>
   <url>
     <loc>https://varnox.sytes.net/#contacto</loc>
     <priority>0.8</priority>
+    <lastmod>2025-08-21</lastmod>
   </url>
   <url>
     <loc>https://varnox.sytes.net/#servicios</loc>
     <priority>0.8</priority>
+    <lastmod>2025-08-21</lastmod>
   </url>
   <url>
     <loc>https://varnox.sytes.net/#proyectos</loc>
     <priority>0.7</priority>
+    <lastmod>2025-08-21</lastmod>
   </url>
   <url>
     <loc>https://varnox.sytes.net/#about</loc>
     <priority>0.7</priority>
+    <lastmod>2025-08-21</lastmod>
   </url>
+  <!-- Ejemplo de página adicional -->
+  <!-- <url>
+    <loc>https://varnox.sytes.net/aviso</loc>
+    <priority>0.3</priority>
+    <lastmod>2025-08-21</lastmod>
+  </url> -->
 </urlset>
