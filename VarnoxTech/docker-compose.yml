@@ -27,7 +27,7 @@ services:
     environment:
       - ENVIRONMENT=production
       - DATABASE_URL=sqlite:///./contacts.db
-  - CORS_ORIGINS=https://varnox.sytes.net
+      - CORS_ORIGINS=https://varnox.sytes.net
     expose:
       - "8000"
     volumes:
