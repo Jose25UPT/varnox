@@ -1,7 +1,7 @@
 
 varnox.sytes.net {
     # Proxy API requests
-    handle_path /api/* {
+    handle /api/* {
         reverse_proxy backend:8000
     }
     # Proxy frontend (todo lo demás)
