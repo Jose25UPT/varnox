@@ -1,18 +1,10 @@
-# Proxy para backend usando el subdominio permitido por No-IP
-api-varnox.sytes.net {
-    reverse_proxy 172.18.0.3:8000
-    encode gzip
-}
-# Caddyfile para despliegue automático con SSL
 
 varnox.sytes.net {
+    # Proxy API requests
+    handle_path /api/* {
+        reverse_proxy backend:8000
+    }
+    # Proxy frontend (todo lo demás)
     reverse_proxy frontend:80
     encode gzip
 }
-
-# api.varnox.sytes.net {
-#     reverse_proxy 172.18.0.3:8000
-#     encode gzip
-# }
-
-# Opcional: redirección HTTP->HTTPS (Caddy lo hace por defecto)
