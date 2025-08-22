@@ -11,8 +11,8 @@ services:
       - ENVIRONMENT=development
       - DATABASE_URL=sqlite:///./contacts.db
       - CORS_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
-    expose:
-      - "8000"
+    ports:
+      - "8000:8000"
     volumes:
       - ./backend:/app
       - backend_uploads:/app/uploads
@@ -39,8 +39,8 @@ services:
     depends_on:
       backend:
         condition: service_healthy
-    expose:
-      - "80"
+    ports:
+      - "3000:80"
     volumes:
       - ./frontend:/app
       - frontend_node_modules:/app/node_modules
@@ -54,31 +54,6 @@ services:
       timeout: 10s
       retries: 5
       start_period: 60s
-
-  # Nginx Reverse Proxy
-  nginx:
-    build: ./nginx
-    container_name: varnox-nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    depends_on:
-      - frontend
-      - backend
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    networks:
-      - varnox-network
-    restart: always
-
-  # Certbot
-  certbot:
-    image: certbot/certbot
-    container_name: varnox-certbot
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
 
 volumes:
   backend_uploads:
