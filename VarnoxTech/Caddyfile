@@ -6,7 +6,7 @@ varnox.sytes.net {
 }
 
 api.varnox.sytes.net {
-    reverse_proxy backend:8000
+    reverse_proxy 172.18.0.3:8000
     encode gzip
 }
 
