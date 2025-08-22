@@ -22,13 +22,9 @@ class ContactService {
   private readonly baseURL = this.getApiUrl()
   
   private getApiUrl(): string {
-    // Usar siempre la variable de entorno VITE_API_URL si está definida
-    const apiUrl = (import.meta as any).env?.VITE_API_URL || import.meta.env.VITE_API_URL;
-    if (apiUrl) {
-      return apiUrl;
-    }
-    // Fallback solo si no hay variable definida
-    return 'http://localhost:8000';
+    // Siempre usar la variable de entorno VITE_API_URL (definida en Docker Compose para producción)
+    // Esto asegura que nunca se use localhost ni http://backend:8000
+    return (import.meta as any).env?.VITE_API_URL || import.meta.env.VITE_API_URL || '';
   }
 
   async submitContactForm(data: ContactFormData): Promise<ContactResponse> {
