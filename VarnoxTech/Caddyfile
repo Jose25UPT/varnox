@@ -5,9 +5,9 @@ varnox.sytes.net {
     encode gzip
 }
 
-api.varnox.sytes.net {
-    reverse_proxy 172.18.0.3:8000
-    encode gzip
-}
+# api.varnox.sytes.net {
+#     reverse_proxy 172.18.0.3:8000
+#     encode gzip
+# }
 
 # Opcional: redirección HTTP->HTTPS (Caddy lo hace por defecto)

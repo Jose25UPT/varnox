@@ -22,12 +22,15 @@ class ContactService {
   private readonly baseURL = this.getApiUrl()
   
   private getApiUrl(): string {
-    // Usar siempre la variable de entorno VITE_API_URL si existe
+    // En producción Docker, usar el nombre de servicio interno
+    if (import.meta.env.PROD) {
+      return 'http://backend:8000'
+    }
+    // En desarrollo, usar variable de entorno o localhost
     const apiUrl = (import.meta as any).env?.VITE_API_URL || import.meta.env.VITE_API_URL
     if (apiUrl) {
       return apiUrl
     }
-    // Fallback solo para desarrollo local
     return 'http://localhost:8000'
   }
 
