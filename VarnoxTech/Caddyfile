@@ -1,3 +1,8 @@
+# Proxy para backend usando el subdominio permitido por No-IP
+api-varnox.sytes.net {
+    reverse_proxy 172.18.0.3:8000
+    encode gzip
+}
 # Caddyfile para despliegue automático con SSL
 
 varnox.sytes.net {
