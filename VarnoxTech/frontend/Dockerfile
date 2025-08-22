@@ -25,8 +25,6 @@ RUN apk add --no-cache curl
 # Copy built app to nginx
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
-# Copy nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Create nginx user and set permissions
 RUN chown -R nginx:nginx /usr/share/nginx/html
