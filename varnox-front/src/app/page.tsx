@@ -1,23 +1,33 @@
-import Navbar from '@/components/Navbar'
-import HeroSection from '@/components/HeroSection'
-import ServicesSection from '@/components/ServicesSection'
+import SidebarNavigation from '@/components/SidebarNavigation'
+import HeroCarousel from '@/components/HeroCarousel'
+import ServicesGrid from '@/components/ServicesGrid'
+import WebPagesSection from '@/components/WebPagesSection'
 import ProjectsSection from '@/components/ProjectsSection'
 import AboutSection from '@/components/AboutSection'
+import MissionVisionSection from '@/components/MissionVisionSection'
+import TeamSection from '@/components/TeamSection'
 import ProcessSection from '@/components/ProcessSection'
-import ContactForm from '@/components/ContactForm'
 import FooterSection from '@/components/FooterSection'
+import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 export default function Page() {
   return (
-    <div>
-      <Navbar />
-      <HeroSection />
-      <ServicesSection />
-      <ProjectsSection />
-      <AboutSection />
-      <ProcessSection />
-      <ContactForm />
-      <FooterSection />
+    <div className="relative min-h-screen w-full">
+      <SidebarNavigation />
+      <main className="ml-20 transition-all duration-300 ease-in-out">
+        <div className="px-4 md:px-8 lg:px-12 py-10 bg-background-dark bg-[radial-gradient(circle_at_top_right,_rgba(19,164,236,0.1),_transparent_40%)]">
+          <HeroCarousel />
+          <ServicesGrid />
+          <div id="webpages"><WebPagesSection /></div>
+          <div id="projects"><ProjectsSection /></div>
+          <div id="about"><AboutSection /></div>
+          <div id="mission-vision"><MissionVisionSection /></div>
+          <div id="team"><TeamSection /></div>
+          <div id="process"><ProcessSection /></div>
+          <div id="footer"><FooterSection /></div>
+        </div>
+      </main>
+      <WhatsAppFloat />
     </div>
   )
 }
