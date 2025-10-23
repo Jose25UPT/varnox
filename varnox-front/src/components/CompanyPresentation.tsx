@@ -24,7 +24,7 @@ export default function CompanyPresentation() {
               </span>
               <br />
               <span className="bg-gradient-to-r from-primary via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Tech Solutions
+                Tech 
               </span>
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl leading-relaxed">
