@@ -38,20 +38,6 @@ export default function MissionVisionSection() {
               plataformas digitales que impulsan el crecimiento, optimizan procesos y transforman ideas en
               realidades tecnológicas excepcionales.
             </p>
-            <div className="space-y-4">
-              <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                <span className="material-symbols-outlined text-primary mr-3 text-lg">check_circle</span>
-                <span className="font-medium">Software a medida para cada negocio</span>
-              </div>
-              <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                <span className="material-symbols-outlined text-primary mr-3 text-lg">check_circle</span>
-                <span className="font-medium">Innovación tecnológica constante</span>
-              </div>
-              <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                <span className="material-symbols-outlined text-primary mr-3 text-lg">check_circle</span>
-                <span className="font-medium">Compromiso con la calidad y eficiencia</span>
-              </div>
-            </div>
           </div>
 
           {/* Visión */}
@@ -71,20 +57,6 @@ export default function MissionVisionSection() {
               Aspiramos a ser el socio tecnológico de confianza para empresas de todos los tamaños, desde
               startups innovadoras hasta corporaciones establecidas.
             </p>
-            <div className="space-y-4">
-              <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                <span className="material-symbols-outlined text-primary mr-3 text-lg">rocket_launch</span>
-                <span className="font-medium">Liderazgo en innovación tecnológica</span>
-              </div>
-              <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                <span className="material-symbols-outlined text-primary mr-3 text-lg">groups</span>
-                <span className="font-medium">Socio estratégico para el crecimiento</span>
-              </div>
-              <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                <span className="material-symbols-outlined text-primary mr-3 text-lg">workspace_premium</span>
-                <span className="font-medium">Excelencia y reconocimiento internacional</span>
-              </div>
-            </div>
           </div>
         </div>
 
