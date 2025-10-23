@@ -49,22 +49,6 @@ export default function CompanyPresentation() {
               Contactar Ahora
             </button>
           </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 pt-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">50+</div>
-              <div className="text-sm text-gray-400">Proyectos Completados</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">100%</div>
-              <div className="text-sm text-gray-400">Satisfacción Cliente</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">24/7</div>
-              <div className="text-sm text-gray-400">Soporte Técnico</div>
-            </div>
-          </div>
         </div>
 
         {/* Image Content */}
