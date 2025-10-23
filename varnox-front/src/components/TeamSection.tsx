@@ -68,19 +68,6 @@ export default function TeamSection() {
             </div>
           ))}
         </div>
-
-        <div className="text-center mt-16">
-          <div className="bg-black/20 border border-white/10 rounded-xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">¿Quieres ser parte del equipo?</h3>
-            <p className="text-gray-400 mb-6">
-              Estamos siempre buscando talento excepcional. Si compartes nuestra pasión por la tecnología
-              y la innovación, queremos conocerte.
-            </p>
-            <button className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300">
-              Ver Oportunidades
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   )
