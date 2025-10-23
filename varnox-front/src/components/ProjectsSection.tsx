@@ -24,8 +24,26 @@ export default function ProjectsSection() {
             <div
               key={p.id}
               onClick={() => p.link && setSelectedProject(p)}
-              className={`relative group bg-black/20 rounded-xl border border-white/10 shadow-lg shadow-black/20 transition-all duration-500 overflow-hidden hover:shadow-2xl hover:shadow-primary/30 hover:scale-105 min-h-[210px] backdrop-blur-sm ${p.link ? 'cursor-pointer' : ''}`}
+              className={`relative group bg-black/20 rounded-xl border border-white/10 shadow-lg shadow-black/20 transition-all duration-500 overflow-hidden hover:shadow-2xl hover:shadow-primary/30 hover:scale-105 min-h-[280px] backdrop-blur-sm ${p.link ? 'cursor-pointer' : ''}`}
             >
+              {/* Website Preview */}
+              {p.link && (
+                <div className="relative h-32 bg-gray-900 rounded-t-xl overflow-hidden border-b border-white/10">
+                  <iframe
+                    src={p.link}
+                    className="w-full h-full border-0 transform scale-50 origin-top-left"
+                    style={{ width: '200%', height: '200%', transform: 'scale(0.5)', transformOrigin: 'top left' }}
+                    title={`Preview ${p.title}`}
+                    sandbox="allow-scripts allow-same-origin"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="absolute top-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm">
+                    Preview
+                  </div>
+                </div>
+              )}
+
               <div className="p-4">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-xl">{p.icon}</span>
