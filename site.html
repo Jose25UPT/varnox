@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio | Previsualización de Proyectos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen py-10">
+
+  <header class="text-center mb-10">
+    <h1 class="text-4xl font-bold text-gray-900">💼 Mis Proyectos</h1>
+    <p class="text-gray-600 mt-2">Haz clic en un proyecto para ver una previsualización en vivo estilo Vercel.</p>
+  </header>
+
+  <section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+
+    <!-- Proyecto -->
+    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition cursor-pointer overflow-hidden"
+         onclick="openPreview('https://motos-sur-tacna.vercel.app/')">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60"
+           class="w-full h-48 object-cover" alt="Proyecto">
+      <div class="p-5">
+        <h3 class="text-lg font-semibold text-gray-900">Tienda Digital Pro</h3>
+        <p class="text-gray-600 text-sm">E-commerce moderno con Laravel y Vue.js</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition cursor-pointer overflow-hidden"
+         onclick="openPreview('https://motos-sur-tacna.vercel.app/')">
+      <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c36?auto=format&fit=crop&w=800&q=60"
+           class="w-full h-48 object-cover" alt="Proyecto">
+      <div class="p-5">
+        <h3 class="text-lg font-semibold text-gray-900">SecureApp</h3>
+        <p class="text-gray-600 text-sm">Aplicación móvil de seguridad y biometría</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Fondo oscuro -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-70 hidden z-40"></div>
+
+  <!-- Ventana de previsualización tipo Vercel -->
+  <div id="previewModal" class="fixed inset-0 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-xl w-[95%] md:w-[80%] h-[85%] shadow-2xl flex flex-col overflow-hidden">
+      <!-- Header -->
+      <div class="flex items-center justify-between bg-gray-900 text-white px-4 py-2">
+        <h2 class="text-sm font-semibold">🔍 Previsualización del Proyecto</h2>
+        <button onclick="closePreview()" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm font-semibold">Cerrar</button>
+      </div>
+      <!-- Iframe -->
+      <iframe id="previewFrame" src="" class="flex-1 border-none"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById("overlay");
+    const modal = document.getElementById("previewModal");
+    const frame = document.getElementById("previewFrame");
+
+    function openPreview(url) {
+      frame.src = url;
+      overlay.classList.remove("hidden");
+      modal.classList.remove("hidden");
+    }
+
+    function closePreview() {
+      overlay.classList.add("hidden");
+      modal.classList.add("hidden");
+      frame.src = "";
+    }
+
+    overlay.addEventListener("click", closePreview);
+  </script>
+
+</body>
+</html>
+
+
+
+
+git init
+git add .
+git commit -m "commit varnox"
+git branch -M main
+git remote add origin https://github.com/Jose25UPT/varnox.git
+git push -u origin main
