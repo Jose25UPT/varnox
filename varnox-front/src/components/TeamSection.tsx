@@ -9,14 +9,6 @@ export default function TeamSection() {
       github: "#"
     },
     {
-      name: "María González",
-      role: "Directora de Desarrollo",
-      description: "Arquitecta de software especializada en soluciones escalables y microservicios.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face",
-      linkedin: "#",
-      github: "#"
-    },
-    {
       name: "Carlos Rodríguez",
       role: "Lead Frontend",
       description: "Experto en React, Vue.js y diseño de interfaces de usuario intuitivas y modernas.",
@@ -29,22 +21,6 @@ export default function TeamSection() {
       role: "Backend Developer",
       description: "Especialista en Node.js, Python y bases de datos, apasionada por la optimización de rendimiento.",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-      linkedin: "#",
-      github: "#"
-    },
-    {
-      name: "David López",
-      role: "DevOps Engineer",
-      description: "Experto en CI/CD, cloud computing y automatización de infraestructura.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
-      linkedin: "#",
-      github: "#"
-    },
-    {
-      name: "Laura Sánchez",
-      role: "UX/UI Designer",
-      description: "Diseñadora creativa enfocada en experiencias de usuario excepcionales y diseño centrado en el humano.",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face",
       linkedin: "#",
       github: "#"
     }
