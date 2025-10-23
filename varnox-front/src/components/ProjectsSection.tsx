@@ -1,6 +1,10 @@
 "use client"
 
+import { useState } from 'react'
+
 export default function ProjectsSection() {
+  const [selectedProject, setSelectedProject] = useState<any>(null)
+
   const projects = [
     { id: 1, title: 'VARNOX Corporativo', category: 'Desarrollo Empresarial', description: 'Plataforma integral de gestión empresarial.', tech: ['Next.js','TypeScript'], status: 'Activo', icon: '🏢' },
     { id: 2, title: 'VARNOX Asistente', category: 'Inteligencia Artificial', description: 'Asistente inteligente con PLN.', tech: ['Python','FastAPI'], status: 'Activo', icon: '🤖' },
@@ -19,7 +23,7 @@ export default function ProjectsSection() {
           {projects.map(p => (
             <div
               key={p.id}
-              onClick={() => p.link && window.open(p.link, '_blank')}
+              onClick={() => p.link && setSelectedProject(p)}
               className={`relative group bg-black/20 rounded-xl border border-white/10 shadow-lg shadow-black/20 transition-all duration-500 overflow-hidden hover:shadow-2xl hover:shadow-primary/30 hover:scale-105 min-h-[210px] backdrop-blur-sm ${p.link ? 'cursor-pointer' : ''}`}
             >
               <div className="p-4">
@@ -35,7 +39,7 @@ export default function ProjectsSection() {
                 <p className="text-gray-400 text-xs leading-snug">{p.description}</p>
                 {p.link && (
                   <div className="mt-2 text-primary text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    Click para ver el proyecto →
+                    Click para previsualizar →
                   </div>
                 )}
               </div>
@@ -43,6 +47,58 @@ export default function ProjectsSection() {
           ))}
         </div>
       </div>
+
+      {/* Project Preview Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
+          <div className="relative w-full max-w-6xl h-[80vh] bg-background-dark rounded-2xl border border-white/20 shadow-2xl overflow-hidden">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-6 border-b border-white/10">
+              <div className="flex items-center gap-4">
+                <span className="text-2xl">{selectedProject.icon}</span>
+                <div>
+                  <h3 className="text-xl font-bold text-white">{selectedProject.title}</h3>
+                  <p className="text-primary text-sm">{selectedProject.category}</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="w-10 h-10 rounded-full bg-black/20 hover:bg-black/40 flex items-center justify-center transition-colors"
+              >
+                <span className="material-symbols-outlined text-white">close</span>
+              </button>
+            </div>
+
+            {/* Modal Content - Iframe */}
+            <div className="flex-1 p-6">
+              <iframe
+                src={selectedProject.link}
+                className="w-full h-full rounded-xl border border-white/10"
+                title={`Vista previa de ${selectedProject.title}`}
+                sandbox="allow-scripts allow-same-origin allow-forms"
+              />
+            </div>
+
+            {/* Modal Footer */}
+            <div className="p-6 border-t border-white/10 bg-black/20">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4 text-sm text-gray-400">
+                  <span>Estado: <span className="text-green-400">{selectedProject.status}</span></span>
+                  <span>Tecnologías: {selectedProject.tech.join(', ')}</span>
+                </div>
+                <a
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors text-sm font-medium"
+                >
+                  Abrir en nueva pestaña
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
