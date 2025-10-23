@@ -50,8 +50,8 @@ export default function ProjectsSection() {
 
       {/* Project Preview Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="relative w-full max-w-7xl h-[90vh] bg-gray-100 rounded-2xl shadow-2xl overflow-hidden border-4 border-gray-300">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-2">
+          <div className="relative w-full max-w-7xl h-[95vh] bg-gray-100 rounded-2xl shadow-2xl overflow-hidden border-4 border-gray-300">
             {/* Browser Window Header */}
             <div className="bg-gray-200 px-4 py-3 flex items-center justify-between border-b border-gray-300">
               {/* Browser Controls */}
@@ -97,7 +97,7 @@ export default function ProjectsSection() {
               </div>
             </div>
 
-            {/* Browser Content - Iframe */}
+            {/* Browser Content - Iframe (Mucho más grande ahora) */}
             <div className="flex-1 bg-white relative">
               <iframe
                 src={selectedProject.link}
@@ -115,24 +115,16 @@ export default function ProjectsSection() {
               </div>
             </div>
 
-            {/* Browser Footer */}
-            <div className="bg-gray-100 px-4 py-2 border-t border-gray-300 flex items-center justify-between text-xs text-gray-600">
-              <div className="flex items-center space-x-4">
-                <span>🔒 Seguro</span>
-                <span>📄 {selectedProject.title}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="material-symbols-outlined text-xs">zoom_in</span>
-                <span className="material-symbols-outlined text-xs">zoom_out</span>
-                <a
-                  href={selectedProject.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ml-4 px-3 py-1 bg-primary text-white rounded hover:bg-primary/80 transition-colors text-xs"
-                >
-                  Abrir sitio →
-                </a>
-              </div>
+            {/* Browser Footer - Movido abajo y más pequeño */}
+            <div className="bg-gray-100 px-4 py-2 border-t border-gray-300 flex items-center justify-end">
+              <a
+                href={selectedProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors text-sm font-medium"
+              >
+                Abrir sitio completo →
+              </a>
             </div>
           </div>
         </div>
