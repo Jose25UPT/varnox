@@ -40,20 +40,6 @@ export default function MissionVisionSection() {
                 plataformas digitales que impulsan el crecimiento, optimizan procesos y transforman ideas en
                 realidades tecnológicas excepcionales.
               </p>
-              <div className="space-y-4">
-                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                  <span className="material-symbols-outlined text-primary mr-4 text-xl">check_circle</span>
-                  <span className="font-medium text-lg">Software a medida para cada negocio</span>
-                </div>
-                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                  <span className="material-symbols-outlined text-primary mr-4 text-xl">check_circle</span>
-                  <span className="font-medium text-lg">Innovación tecnológica constante</span>
-                </div>
-                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                  <span className="material-symbols-outlined text-primary mr-4 text-xl">check_circle</span>
-                  <span className="font-medium text-lg">Compromiso con la excelencia</span>
-                </div>
-              </div>
             </div>
 
             {/* Misión Image */}
@@ -114,19 +100,7 @@ export default function MissionVisionSection() {
                 Aspiramos a ser el socio tecnológico de confianza para empresas de todos los tamaños, desde
                 startups innovadoras hasta corporaciones establecidas.
               </p>
-              <div className="space-y-4">
-                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                  <span className="material-symbols-outlined text-blue-400 mr-4 text-xl">north_east</span>
-                  <span className="font-medium text-lg">Liderazgo regional en tecnología</span>
-                </div>
-                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                  <span className="material-symbols-outlined text-blue-400 mr-4 text-xl">north_east</span>
-                  <span className="font-medium text-lg">Soluciones digitales innovadoras</span>
-                </div>
-                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
-                  <span className="material-symbols-outlined text-blue-400 mr-4 text-xl">north_east</span>
-                  <span className="font-medium text-lg">Confianza y excelencia</span>
-                </div>
+                <div>
               </div>
             </div>
           </div>
