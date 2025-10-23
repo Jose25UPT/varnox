@@ -50,49 +50,87 @@ export default function ProjectsSection() {
 
       {/* Project Preview Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
-          <div className="relative w-full max-w-6xl h-[80vh] bg-background-dark rounded-2xl border border-white/20 shadow-2xl overflow-hidden">
-            {/* Modal Header */}
-            <div className="flex items-center justify-between p-6 border-b border-white/10">
-              <div className="flex items-center gap-4">
-                <span className="text-2xl">{selectedProject.icon}</span>
-                <div>
-                  <h3 className="text-xl font-bold text-white">{selectedProject.title}</h3>
-                  <p className="text-primary text-sm">{selectedProject.category}</p>
-                </div>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+          <div className="relative w-full max-w-7xl h-[90vh] bg-gray-100 rounded-2xl shadow-2xl overflow-hidden border-4 border-gray-300">
+            {/* Browser Window Header */}
+            <div className="bg-gray-200 px-4 py-3 flex items-center justify-between border-b border-gray-300">
+              {/* Browser Controls */}
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
+
+              {/* Browser Title */}
+              <div className="flex-1 text-center">
+                <span className="text-sm text-gray-600 font-medium">{selectedProject.title} - VARNOX Preview</span>
+              </div>
+
+              {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="w-10 h-10 rounded-full bg-black/20 hover:bg-black/40 flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-gray-300 hover:bg-gray-400 flex items-center justify-center transition-colors"
               >
-                <span className="material-symbols-outlined text-white">close</span>
+                <span className="material-symbols-outlined text-gray-700 text-sm">close</span>
               </button>
             </div>
 
-            {/* Modal Content - Iframe */}
-            <div className="flex-1 p-6">
-              <iframe
-                src={selectedProject.link}
-                className="w-full h-full rounded-xl border border-white/10"
-                title={`Vista previa de ${selectedProject.title}`}
-                sandbox="allow-scripts allow-same-origin allow-forms"
-              />
+            {/* Address Bar */}
+            <div className="bg-white px-4 py-3 border-b border-gray-200 flex items-center space-x-3">
+              <div className="flex items-center space-x-2">
+                <button className="w-6 h-6 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100">
+                  <span className="material-symbols-outlined text-gray-600 text-xs">arrow_back</span>
+                </button>
+                <button className="w-6 h-6 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100">
+                  <span className="material-symbols-outlined text-gray-600 text-xs">arrow_forward</span>
+                </button>
+                <button className="w-6 h-6 rounded border border-gray-300 flex items-center justify-center hover:bg-gray-100">
+                  <span className="material-symbols-outlined text-gray-600 text-xs">refresh</span>
+                </button>
+              </div>
+
+              {/* URL Bar */}
+              <div className="flex-1 flex items-center bg-gray-100 rounded-lg px-3 py-1 border border-gray-300">
+                <span className="material-symbols-outlined text-gray-500 text-sm mr-2">lock</span>
+                <span className="text-sm text-gray-700 font-mono flex-1 truncate">{selectedProject.link}</span>
+                <span className="material-symbols-outlined text-gray-500 text-sm ml-2">star</span>
+              </div>
             </div>
 
-            {/* Modal Footer */}
-            <div className="p-6 border-t border-white/10 bg-black/20">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4 text-sm text-gray-400">
-                  <span>Estado: <span className="text-green-400">{selectedProject.status}</span></span>
-                  <span>Tecnologías: {selectedProject.tech.join(', ')}</span>
+            {/* Browser Content - Iframe */}
+            <div className="flex-1 bg-white relative">
+              <iframe
+                src={selectedProject.link}
+                className="w-full h-full border-0"
+                title={`Vista previa de ${selectedProject.title}`}
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+              />
+
+              {/* Loading Overlay (optional) */}
+              <div className="absolute inset-0 bg-white flex items-center justify-center opacity-0 pointer-events-none transition-opacity">
+                <div className="text-center">
+                  <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-2"></div>
+                  <p className="text-gray-600 text-sm">Cargando previsualización...</p>
                 </div>
+              </div>
+            </div>
+
+            {/* Browser Footer */}
+            <div className="bg-gray-100 px-4 py-2 border-t border-gray-300 flex items-center justify-between text-xs text-gray-600">
+              <div className="flex items-center space-x-4">
+                <span>🔒 Seguro</span>
+                <span>📄 {selectedProject.title}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span className="material-symbols-outlined text-xs">zoom_in</span>
+                <span className="material-symbols-outlined text-xs">zoom_out</span>
                 <a
                   href={selectedProject.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition-colors text-sm font-medium"
+                  className="ml-4 px-3 py-1 bg-primary text-white rounded hover:bg-primary/80 transition-colors text-xs"
                 >
-                  Abrir en nueva pestaña
+                  Abrir sitio →
                 </a>
               </div>
             </div>
