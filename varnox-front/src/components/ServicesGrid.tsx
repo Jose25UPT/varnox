@@ -34,12 +34,12 @@ export default function ServicesGrid() {
 
   return (
     <div className="mb-16">
-      <h2 className="text-white text-3xl font-bold leading-tight tracking-tighter px-4 pb-6 pt-5">Explore our services</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
+      <h2 className="text-white text-4xl font-bold leading-tight tracking-tighter px-4 pb-4 pt-4">Explore our services</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-5">
         {services.map((service, index) => (
-          <div key={index} className="group relative bg-white/5 bg-cover bg-center flex flex-col gap-3 rounded-xl justify-end p-6 aspect-square transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 border border-white/10 hover:border-primary/50" style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("${service.image}")` }}>
-            <p className="text-white text-xl font-bold leading-tight">{service.name}</p>
-            <p className="text-gray-300 text-sm">{service.description}</p>
+          <div key={index} className="group relative bg-white/5 bg-cover bg-center flex flex-col gap-2 rounded-xl justify-end p-5 h-80 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:shadow-primary/30 border border-white/10 hover:border-primary/50" style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 100%), url("${service.image}")` }}>
+            <p className="text-white text-lg font-bold leading-tight">{service.name}</p>
+            <p className="text-gray-300 text-xs">{service.description}</p>
           </div>
         ))}
       </div>
