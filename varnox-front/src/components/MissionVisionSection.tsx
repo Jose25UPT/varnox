@@ -20,43 +20,115 @@ export default function MissionVisionSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Misión */}
-          <div className="group bg-gradient-to-br from-black/30 to-black/10 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
-            <div className="flex items-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
-                <span className="material-symbols-outlined text-primary text-3xl">target</span>
+        {/* Misión Section */}
+        <div className="mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Misión Content */}
+            <div className="group bg-gradient-to-br from-black/40 to-black/20 border-2 border-primary/30 rounded-3xl p-10 backdrop-blur-sm hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20">
+              <div className="flex items-center mb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/30 to-primary/20 rounded-3xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="material-symbols-outlined text-primary text-4xl">target</span>
+                </div>
+                <div>
+                  <h3 className="text-3xl font-bold text-white mb-2">Nuestra Misión</h3>
+                  <div className="w-16 h-1 bg-primary rounded-full"></div>
+                </div>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-1">Nuestra Misión</h3>
-                <div className="w-12 h-1 bg-primary rounded-full"></div>
+              <p className="text-gray-300 text-xl leading-relaxed mb-8">
+                En VARNOX, nos dedicamos a crear soluciones de software personalizadas que se adaptan perfectamente
+                a las necesidades únicas de cada cliente. Desarrollamos aplicaciones innovadoras, sistemas web y
+                plataformas digitales que impulsan el crecimiento, optimizan procesos y transforman ideas en
+                realidades tecnológicas excepcionales.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
+                  <span className="material-symbols-outlined text-primary mr-4 text-xl">check_circle</span>
+                  <span className="font-medium text-lg">Software a medida para cada negocio</span>
+                </div>
+                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
+                  <span className="material-symbols-outlined text-primary mr-4 text-xl">check_circle</span>
+                  <span className="font-medium text-lg">Innovación tecnológica constante</span>
+                </div>
+                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
+                  <span className="material-symbols-outlined text-primary mr-4 text-xl">check_circle</span>
+                  <span className="font-medium text-lg">Compromiso con la excelencia</span>
+                </div>
               </div>
             </div>
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              En VARNOX, nos dedicamos a crear soluciones de software personalizadas que se adaptan perfectamente
-              a las necesidades únicas de cada cliente. Desarrollamos aplicaciones innovadoras, sistemas web y
-              plataformas digitales que impulsan el crecimiento, optimizan procesos y transforman ideas en
-              realidades tecnológicas excepcionales.
-            </p>
-          </div>
 
-          {/* Visión */}
-          <div className="group bg-gradient-to-br from-black/30 to-black/10 border border-white/10 rounded-2xl p-8 backdrop-blur-sm hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
-            <div className="flex items-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
-                <span className="material-symbols-outlined text-primary text-3xl">visibility</span>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-1">Nuestra Visión</h3>
-                <div className="w-12 h-1 bg-primary rounded-full"></div>
+            {/* Misión Image */}
+            <div className="relative">
+              <div className="relative h-96 rounded-3xl overflow-hidden bg-gradient-to-br from-primary/20 to-blue-500/20 border border-primary/20">
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop&crop=center"
+                  alt="Equipo de desarrollo trabajando"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center text-white">
+                    <span className="material-symbols-outlined text-2xl mr-3">engineering</span>
+                    <span className="text-lg font-semibold">Desarrollo Colaborativo</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              Ser la empresa líder en desarrollo de software personalizado en América Latina, reconocida por
-              nuestra capacidad de transformar desafíos complejos en soluciones digitales elegantes y efectivas.
-              Aspiramos a ser el socio tecnológico de confianza para empresas de todos los tamaños, desde
-              startups innovadoras hasta corporaciones establecidas.
-            </p>
+          </div>
+        </div>
+
+        {/* Visión Section */}
+        <div className="mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Visión Image */}
+            <div className="relative order-2 lg:order-1">
+              <div className="relative h-96 rounded-3xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-cyan-400/20 border border-blue-400/20">
+                <img
+                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=500&fit=crop&crop=center"
+                  alt="Visión tecnológica del futuro"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="flex items-center text-white">
+                    <span className="material-symbols-outlined text-2xl mr-3">visibility</span>
+                    <span className="text-lg font-semibold">Mirando al Futuro</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Visión Content */}
+            <div className="group bg-gradient-to-br from-black/40 to-black/20 border-2 border-blue-400/30 rounded-3xl p-10 backdrop-blur-sm hover:border-blue-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-400/20 order-1 lg:order-2">
+              <div className="flex items-center mb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-400/30 to-blue-400/20 rounded-3xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
+                  <span className="material-symbols-outlined text-blue-400 text-4xl">visibility</span>
+                </div>
+                <div>
+                  <h3 className="text-3xl font-bold text-white mb-2">Nuestra Visión</h3>
+                  <div className="w-16 h-1 bg-blue-400 rounded-full"></div>
+                </div>
+              </div>
+              <p className="text-gray-300 text-xl leading-relaxed mb-8">
+                Ser la empresa líder en desarrollo de software personalizado en América Latina, reconocida por
+                nuestra capacidad de transformar desafíos complejos en soluciones digitales elegantes y efectivas.
+                Aspiramos a ser el socio tecnológico de confianza para empresas de todos los tamaños, desde
+                startups innovadoras hasta corporaciones establecidas.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
+                  <span className="material-symbols-outlined text-blue-400 mr-4 text-xl">north_east</span>
+                  <span className="font-medium text-lg">Liderazgo regional en tecnología</span>
+                </div>
+                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
+                  <span className="material-symbols-outlined text-blue-400 mr-4 text-xl">north_east</span>
+                  <span className="font-medium text-lg">Soluciones digitales innovadoras</span>
+                </div>
+                <div className="flex items-center text-gray-400 group-hover:text-gray-300 transition-colors">
+                  <span className="material-symbols-outlined text-blue-400 mr-4 text-xl">north_east</span>
+                  <span className="font-medium text-lg">Confianza y excelencia</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
